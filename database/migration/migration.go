@@ -7,6 +7,7 @@ import (
 
 var tables = []interface{}{
 	&model.Server{},
+	&model.ApkSetting{},
 }
 
 func Migrate() {

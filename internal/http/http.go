@@ -1,6 +1,7 @@
 package http
 
 import (
+	ApkSetting "simpel-gateway/internal/app/apksetting"
 	Server "simpel-gateway/internal/app/server"
 	"simpel-gateway/internal/factory"
 	"simpel-gateway/internal/middleware"
@@ -22,6 +23,7 @@ func NewHttp(g *gin.Engine, f *factory.Factory) {
 	// Here we define a router group
 	v1 := g.Group("/api/v1")
 	Server.NewHandler(f).Router(v1.Group("/server"))
+	ApkSetting.NewHandler(f).Router(v1.Group("/apk-setting"))
 
 }
 

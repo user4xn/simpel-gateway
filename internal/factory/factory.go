@@ -9,7 +9,8 @@ import (
 )
 
 type Factory struct {
-	ServerRepository repository.Server
+	ServerRepository     repository.Server
+	ApkSettingRepository repository.ApkSetting
 }
 
 func NewFactory() *Factory {
@@ -22,7 +23,8 @@ func NewFactory() *Factory {
 
 	return &Factory{
 		// Pass the db connection to the repository package for database query calling
-		ServerRepository: repository.NewServerRepository(db, redisClient),
+		ServerRepository:     repository.NewServerRepository(db, redisClient),
+		ApkSettingRepository: repository.NewApkSettingRepository(db),
 		// Assign the appropriate implementation of the ReturInsightRepository
 	}
 }
